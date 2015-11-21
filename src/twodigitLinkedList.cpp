@@ -14,7 +14,7 @@ NOTES: Only Postive Numbers
 
 #include <stdio.h>
 #include <malloc.h>
-
+int power(int a, int b);
 struct node {
 	int digit1;
 	int digit2;
@@ -22,5 +22,30 @@ struct node {
 };
 
 int convert_sll_2digit_to_int(struct node *head){
-	return 0;
+	struct node *temp = head;
+	int num_of_nodes = 0, result=0;
+	while (temp)
+	{
+		num_of_nodes++;
+		temp = temp->next;
+	}
+	num_of_nodes = num_of_nodes * 2- 1;
+	temp = head;
+	while (temp)
+	{
+		result =result+ temp->digit1*power(10, num_of_nodes) + temp->digit2*power(10,num_of_nodes-1);
+		num_of_nodes = num_of_nodes -2;
+		temp = temp->next;
+	}
+	return result;
+}
+int power(int a, int b)
+{
+	int iterator;
+	int pow = 1;
+	for (iterator = 1; iterator <= b; iterator++)
+	{
+		pow = pow*a;
+	}
+	return pow;
 }
