@@ -30,24 +30,24 @@ struct node * removeEveryKthNode(struct node *head, int K) {
 		{
 			if (l%K == 0)
 			{
-				if (temp->next != NULL)//removing non last element
+				if (temp->next != NULL)
 				{
 					previous->next = temp->next;
 
 				}
-				else //removing last element
+				else 
 				{
 					previous->next = NULL;
 
 				}
 			}
-			else //if we dont want to remove that positionn increment previous
+			else 
 			{
 				if (temp != head)
 					previous = previous->next;
 			}
 			temp = temp->next;
-			l = l + 1; //icrementing position 
+			l = l + 1; 
 		}
 	}
 	else
